@@ -1,20 +1,45 @@
 //console.log("Hello world");
 
 //Refer to URL. Future Proof: Do not reference local files may cause eror
-let url = 'https://raw.githubusercontent.com/lleiva25/Medicaid-Drug-Rebate-Program/main/Jupyter%20Output/Product_Data_2023';
+const url = 'https://raw.githubusercontent.com/lleiva25/Medicaid-Drug-Rebate-Program/main/Jupyter%20Output/Product_Data_2023';
 //var json = null;
 //Shows url link not data
 //console.log(url)
 
-// Fetch the JSON data and console log it
-d3.json(url).then((data) => {
-           console.log(data)
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+// fetch(url)
+//   .then(response =>
+//     response.json())
+//   .then(data => {
+//     data.values.forEach(
+//         product => console.log(product.product)
+//     )}
+// );
+
+
+//Fetch the JSON data and console log it
+d3.json(url).then(function(data) {
+    console.log(data)
     // Populate the dropdown menu
      var select = d3.select("#selDataset");
-     data.columns.forEach((column) => {
-         select.append("option").text(column).property("value", column);
+     data.product_name.forEach(function(product) {
+         select.append("option").text(product).property("value", product);
      })
     })
+
+
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
     // // Add event listener for the dropdown menu change
     // select.on("change", function () {
     //     var newProduct = d3.select(this).property("value");
