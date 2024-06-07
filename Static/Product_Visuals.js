@@ -11,8 +11,8 @@ d3.json(url).then((data) => {
            console.log(data)
     // Populate the dropdown menu
      var select = d3.select("#selDataset");
-     data.product_name.forEach((product) => {
-         select.append("option").text(product_name).property("value", product_name);
+     data.columns.forEach((column) => {
+         select.append("option").text(column).property("value", column);
      })
     })
     // // Add event listener for the dropdown menu change
