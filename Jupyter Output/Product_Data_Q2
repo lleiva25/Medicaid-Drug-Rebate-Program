@@ -1,4 +1,4 @@
-product_name,package_size,suppression_used,Units Reimbursed,Number of Prescriptions,Total Amount Reimbursed,Medicaid Amount Reimbursed,Non-medicaid Amount Reimbursed,quarter
+,package_size,suppression_used,Units Reimbursed,Number of Prescriptions,Total Amount Reimbursed,Medicaid Amount Reimbursed,Non-medicaid Amount Reimbursed,quarter
 .12% CHLOR,32,0,21283382.219,42975.0,572144.33,571581.35,562.98,2
 0.12% CHLO,34,0,39439.0,278.0,10591.91,3221.91,7370.0,2
 0.15% KCL,0,0,1308382.0,838.0,61254.36,5052.14,56202.22,2
