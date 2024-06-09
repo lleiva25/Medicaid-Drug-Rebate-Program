@@ -1,7 +1,7 @@
 //console.log("Hello world");
 
 //Refer to URL. Future Proof: Do not reference local files may cause eror
-const url = 'https://raw.githubusercontent.com/lleiva25/Medicaid-Drug-Rebate-Program/main/Jupyter%20Output/Product_Data_2023';
+const url = 'https://raw.githubusercontent.com/lleiva25/Medicaid-Drug-Rebate-Program/main/Jupyter%20Output/Product_Data_2023.json';
 //var json = null;
 //Shows url link not data
 //console.log(url)
@@ -30,7 +30,8 @@ d3.json(url).then(function(data) {
      data.product_name.forEach(function(product) {
          select.append("option").text(product).property("value", product);
      })
-    })
+    }
+);
 
 
 /////////////////////////////////////////////////
