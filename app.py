@@ -7,7 +7,7 @@ import matplotlib as plt
 import gunicorn
 
 # Incorporate data
-df = pd.read_json('/Users/leslieleiva/Documents/GitHub/Medicaid-Drug-Rebate-Program/Jupyter Output/Product_Data_2023.json')
+df = pd.read_json('https://raw.githubusercontent.com/lleiva25/Medicaid-Drug-Rebate-Program/main/Jupyter%20Output/Product_Data_2023.json')
 data_df = pd.read_json('/Users/leslieleiva/Documents/GitHub/Medicaid-Drug-Rebate-Program/Jupyter Output/Medicaid_2023_Dataset.json')
 
 
