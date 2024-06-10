@@ -3,5 +3,4 @@ pandas
 plotly
 matplotlib
 json
-gunicorn==19.7.1
-gunicorn
+gunicorn==20.1.0
