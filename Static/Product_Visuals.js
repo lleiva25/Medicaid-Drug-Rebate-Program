@@ -2,138 +2,81 @@
 
 //Refer to URL. Future Proof: Do not reference local files may cause eror
 const url = 'https://raw.githubusercontent.com/lleiva25/Medicaid-Drug-Rebate-Program/main/Jupyter%20Output/Product_Data_2023.json';
-//var json = null;
-//Shows url link not data
-//console.log(url)
 
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-// fetch(url)
-//   .then(response =>
-//     response.json())
-//   .then(data => {
-//     data.values.forEach(
-//         product => console.log(product.product)
-//     )}
-// );
+// function populateDropdown(url) {
+//     // Fetch the JSON data and handle the response
+//     d3.json(url).then(function(data) {
+//         // Log the entire dataset to the console
+//         console.log('This is Data', data);
 
+//         // Populate the dropdown menu
+//         var select = d3.select("#selDataset");
 
-//Fetch the JSON data and console log it
-d3.json(url).then(function(data) {
-    console.log(data)
-    // Populate the dropdown menu
-     var select = d3.select("#selDataset");
-     data.product_name.forEach(function(product) {
-         select.append("option").text(product).property("value", product);
-     })
-    }
-);
+//         // Access the product names from the JSON data
+//         var productNames = data.product_name; // Assuming 'product_name' is the key in your JSON data
 
-
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-    // // Add event listener for the dropdown menu change
-    // select.on("change", function () {
-    //     var newProduct = d3.select(this).property("value");
-    //     optionChanged(newProduct);
-    // });
-
-
-
-//     // Initialize the page with the first sample
-//     var firstProduct = data.product_name[0];
-//     //buildCharts(firstProduct);
-//     //buildMetadata(firstProduct);
-//     // Initialize the page with the first sample for gauge chart
-//     //buildGaugeChart(firstProduct);
-// });
-
-/////////////////////////////////////////////////
-// function buildMetadata(sample) {
-//     d3.json(url).then((data) => {
-//         var metadata = data.metadata;
-//         var resultArray = metadata.filter(sampleObj => sampleObj.id == sample);
-//         var result = resultArray[0];
-//         var PANEL = d3.select("#sample-metadata");
-
-//         // Clear any existing metadata
-//         PANEL.html("");
-
-//         // Add each key-value pair to the panel
-//         Object.entries(result).forEach(([key, value]) => {
-//             PANEL.append("h6").text(`${key.toUpperCase()}: ${value}`);
+//         // Iterate through the product names and add them to the dropdown
+//         productNames.forEach(function(product) {
+//             select.append("option")
+//                 .text(product)
+//                 .property("value", product);
 //         });
 //     });
 // }
 
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
+// populateDropdown(url)
 
-// function BarChart() {
-//     d3.json(url).then((data) => {
-//         var trace1 = {
-//             x: [],
-//             y: [],
-//             name: 'Medicaid Reimbursed',
-//             orientation: 'h',
-//             marker: {
-//                 color: 'rgba(55,128,191,0.6)',
-//                 width: 1
-//             },
-//             type: 'bar'
-//         };
+function init(){ 
 
-//         //Non-Medicaid portion of total Reimbursed
-//         var trace2 = {
-//             x: [],
-//             y: [],
-//             name: 'Non-Medicaid Reimbursed',
-//             orientation: 'h',
-//             type: 'bar',
-//             marker: {
-//                 color: 'rgba(255,153,51,0.6)',
-//                 width: 1
-//             }
-//         };
+    // fetch the json data and console log it
+    d3.json(url).then(function(data){
+        // Log the entire dataset to the console
+        console.log('This is Data', data);
 
+        // Use D3 to select the dropdown menu
+        let dropdownMenu = d3.select("#selDataset");
 
-//         var data = [trace1, trace2];
+        // getting all names from json
+        let product = data.product_name;
 
-//         //Add data into the graphs
-//         data.forEach(function (val) {
-//             trace1.x.push(val["product_name"]);
-//             trace1.y.push(val["Medicaid Amount Reimbursed"]);
-//             trace2.x.push(val["product_name"]);
-//             trace2.y.push(val["Non-medicaid Amount Reimbursed"]);
-//         });
+        // getting dropdown 
+        names.forEach(function(product){
+            dropdownMenu.append("option").text(product).property("value");
+        });
+       
+        // pass first subject and call the functions
+        chartvalues(product[0]);
+        metadata(product[0]);
+    });
+};
 
+// function when the subject id changes
+function optionChanged(passedvalue) {
 
-//         var layout = {
-//             title: 'Colored Bar Chart',
-//             barmode: 'stack'
-//         };
+    chartvalues(passedvalue);
+    metadata(passedvalue);
+};
 
-//         Plotly.newPlot('sample-metadata', data, layout)}
+init()
 
+// // function to 
+// function chartvalues(passedvalue){
 
-/////////////////////////////////////////////////
-// Function to handle changes in the dropdown selection
-function optionChanged(newProduct) {
-    console.log("New sample selected:", newProduct);
-    // buildCharts(newProduct);
-    buildMetadata(newProduct);
-    // buildGaugeChart(newProduct); 
-}
+//     // json data
+//     d3.json(url).then(function(alldata){
+
+//         // retrieve all samples data
+//         let  = data.samples;
+
+//         // filter for each option/subject selected
+//         let id = samples.filter(take=>take.id == passedvalue);
+
+//         // get data for all charts
+//         let sample_values = id[0].sample_values; 
+//         let otu_ids = id[0].otu_ids; 
+//         let otu_labels = id[0].otu_labels; 
+
+//         // call function
+//         charts(sample_values, otu_ids, otu_labels);
+
+//     });
