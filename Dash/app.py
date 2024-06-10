@@ -5,6 +5,7 @@ import json
 import plotly.express as px
 import plotly.graph_objects as go
 import matplotlib as plt
+import gunicorn
 
 # Incorporate data
 df = pd.read_json('/Users/leslieleiva/Documents/GitHub/Medicaid-Drug-Rebate-Program/Jupyter Output/Product_Data_2023.json')
@@ -24,6 +25,8 @@ sum_df = pd.DataFrame({
 
 # Initialize the app
 app = Dash(__name__)
+
+server = app.server
 
 @app.callback(
     Output("pie-chart", "figure"),
