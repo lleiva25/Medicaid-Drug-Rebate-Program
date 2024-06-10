@@ -1,7 +1,6 @@
 # Import packages
 from dash import Dash, html, dash_table, dcc, callback, Output, Input
 import pandas as pd
-import json
 import plotly.express as px
 import plotly.graph_objects as go
 import matplotlib as plt
