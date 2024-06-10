@@ -17,6 +17,9 @@ sum_df = pd.DataFrame({
     "Total Amount Reimbursed": [df["Medicaid Amount Reimbursed"].sum(), df["Non-medicaid Amount Reimbursed"].sum()]
 })
 
+#Top 10 Medications Reimbursed
+top_10_df = df.sort_values(by="Total Amount Reimbursed", ascending=False).head(10)
+
 #Create dataframe for utilization type
 util_list = ["FFSU", "MCOU"]
 util_counts = [data_df[data_df["utilization_type"] == util].shape[0] for util in util_list]
@@ -60,14 +63,23 @@ app.layout = html.Div([
                                                        hover_data=['product_name'],
                                                        trendline="ols"))
     ]),
-    
+
+    # Bar Plot Top 10 Products that are Reimbursed
+    html.Div([
+        html.H3('Top 10 Reimbursed Products'),
+        dcc.Graph(id="top-bar-plot", figure=px.bar(top_10_df,
+                                               x="product_name",
+                                               y="Total Amount Reimbursed",
+                                               ))
+    ]),
+
+
     # Box Plot
     html.Div([
-        html.H3('Total Reimbursed vs Utilization'),
+        html.H3('Utilization Type & Number of Prescription'),
         dcc.Graph(id="box-plot", figure=px.box(data_df,
                                                x="utilization_type", 
-                                               y='Number of Prescriptions',
-                                               #notched=True
+                                               y='Number of Prescriptions'
                                                ))
     ]),
 
