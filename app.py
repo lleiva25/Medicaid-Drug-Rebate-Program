@@ -3,7 +3,7 @@ from dash import Dash, html, dash_table, dcc, callback, Output, Input
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
-import statsmodels.api as sm
+#import statsmodels.api as sm
 
 # Incorporate data
 df = pd.read_json('https://raw.githubusercontent.com/lleiva25/Medicaid-Drug-Rebate-Program/main/Jupyter%20Output/Product_Data_2023.json')
