@@ -36,7 +36,8 @@ Meta Data
 -------------------------------------------------------------------------------
 Dashboard 
 -------------------------------------------------------------------------------
-Link to Dashboard: 
+Link to Dashboard: https://medicaid-drug-rebate-program.onrender.com/
+
 ![Reimbursement_Type_Pie](https://github.com/lleiva25/Medicaid-Drug-Rebate-Program/assets/140974405/0ea50f4c-c170-4700-9953-13b2fb8c04d8)
 
 ![No_Prescription_Scatterplot](https://github.com/lleiva25/Medicaid-Drug-Rebate-Program/assets/140974405/fadb5f11-9c4e-4a87-ba2d-0e95810944eb)
